@@ -1,6 +1,6 @@
 # App
 
-gympass style app
+Uma aplicação inspirada no famoso gympass, que facilita sua conexão com academias.
 
 ## RFs (Requisitos funcionais)
 
