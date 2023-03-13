@@ -1,4 +1,5 @@
-import { registerService } from '@/services/register'
+import { PrismaUsersRepository } from '@/repositories/prisma-users-repository'
+import { RegisterService } from '@/services/register'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 
@@ -15,7 +16,9 @@ export async function registerController(
   const { email, name, password } = registerBodySchema.parse(request.body)
 
   try {
-    await registerService({
+    const usersRepository = new PrismaUsersRepository()
+    const registerService = new RegisterService(usersRepository)
+    await registerService.Execute({
       email,
       name,
       password,
