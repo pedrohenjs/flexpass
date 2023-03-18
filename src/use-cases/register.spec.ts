@@ -50,7 +50,7 @@ describe('Register Service', () => {
       password: '123456',
     })
 
-    expect(() => {
+    await expect(() => {
       return registerUseCase.Execute({
         email,
         name: 'teste',
